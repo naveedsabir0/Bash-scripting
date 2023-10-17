@@ -1,0 +1,14 @@
+Write a script which prints the number of arguments.
+
+
+SCRIPT:
+
+#Number of arguments
+
+#!/bin/bash
+
+# Use the special variable "$#" to get the number of arguments
+num_args=$#
+
+# Print number of arguments
+echo "Number of arguments: $num_args"

@@ -1,0 +1,24 @@
+Create 5 files.
+
+Write a script which appends .txt to all files in a directory.
+
+
+
+SCRIPT:
+
+
+#Appending extensions to filenames
+
+#!/bin/bash
+
+# Loop through the files in the directory
+for file in *
+do
+# Check if file is not already a text file
+if [[ $file != *.txt ]]; then
+# Append the .txt extension to the file name
+newname="${file}.txt"
+# Rename the file with the new name
+mv "$file" "$newname"
+fi
+done

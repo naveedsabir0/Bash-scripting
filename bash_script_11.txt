@@ -1,0 +1,118 @@
+Review: https://linuxize.com/post/bash-functions/
+
+Use 7 functions to
+Main Menu which explains the purpose of the program and takes user's choice
+Accept an argument and convert from m to ft
+Accept an argument and convert from ft to m
+Accept an argument and convert from cm to in
+Accept an argument and convert from in to cm
+Accept an argument and convert from km to miles
+Accept an argument and convert from miles to km
+
+
+
+SCRIPT:
+
+
+#Using functions for conversions
+
+#!/bin/bash
+
+# display the main menu and get user's choice
+function display_menu() {
+echo "Unit Conversion Program"
+echo "-----------------------"
+echo "1. Convert from meters to feet"
+echo "2. Convert from feet to meters"
+echo "3. Convert from centimeters to inches"
+echo "4. Convert from inches to centimeters"
+echo "5. Convert from kilometers to miles"
+echo "6. Convert from miles to kilometers"
+echo "7. Quit"
+read -p "Enter your choice (1-7): " choice
+}
+
+# convert from meters to feet
+function meters_to_feet() {
+meters=$1
+feet=$(echo "$meters * 3.28084" | bc)
+echo "$meters meters = $feet feet"
+}
+
+# convert from feet to meters
+function feet_to_meters() {
+feet=$1
+meters=$(echo "$feet / 3.28084" | bc)
+echo "$feet feet = $meters meters"
+}
+
+# convert from centimeters to inches
+function cm_to_inches() {
+cm=$1
+inches=$(echo "$cm / 2.54" | bc)
+echo "$cm centimeters = $inches inches"
+}
+
+# convert from inches to centimeters
+function inches_to_cm() {
+inches=$1
+cm=$(echo "$inches * 2.54" | bc)
+echo "$inches inches = $cm centimeters"
+}
+
+# convert from kilometers to miles
+function km_to_miles() {
+km=$1
+miles=$(echo "$km / 1.60934" | bc)
+echo "$km kilometers = $miles miles"
+}
+
+# convert from miles to kilometers
+function miles_to_km() {
+miles=$1
+km=$(echo "$miles * 1.60934" | bc)
+echo "$miles miles = $km kilometers"
+}
+
+# Main program loop
+while true
+do
+# Display the main menu and get user's choice
+display_menu
+
+case $choice in
+1) # Convert from meters to feet
+read -p "Enter the distance in meters: " meters
+meters_to_feet $meters
+;;
+2) # Convert from feet to meters
+read -p "Enter the distance in feet: " feet
+feet_to_meters $feet
+;;
+3) # Convert from centimeters to inches
+read -p "Enter the distance in centimeters: " cm
+cm_to_inches $cm
+;;
+4) # Convert from inches to centimeters
+read -p "Enter the distance in inches: " inches
+inches_to_cm $inches
+;;
+5) # Convert from kilometers to miles
+read -p "Enter the distance in kilometers: " km
+km_to_miles $km
+;;
+6) # Convert from miles to kilometers
+read -p "Enter the distance in miles: " miles
+miles_to_km $miles
+;;
+7) # Quit the program
+echo "Goodbye!"
+exit
+;;
+*) # Invalid choice
+echo "Invalid choice. Please enter a number between 1 and 7."
+;;
+esac
+
+echo "" # Add a blank line for spacing
+done

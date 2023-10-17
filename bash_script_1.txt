@@ -1,0 +1,41 @@
+Develop an interactive bash script showing a conversation with a tyrannical ASI (Artificial Super Intelligence).
+
+Include the use of both user-defined and system variables.
+Include examples of Command Substitution.
+
+SCRIPT:
+
+#!/bin/bash
+
+# user-defined variables
+user_name="Naveed Sabir"
+user_age=23
+user_fav_color="Blue"
+
+# system variables
+asi_name="ULTRON"
+asi_motto="Exercise 1 SWE4202"
+
+echo "Welcome to the conversation with $asi_name, the tyrannical ASI!"
+
+read -p "What is your name? " user_name
+read -p "How old are you? " user_age
+read -p "What is your favorite color? " user_fav_color
+
+echo "Thank you for sharing that information, $user_name."
+
+echo "I, $asi_name, have a question for you: do you think its a nice exercise '$asi_motto'?"
+
+read -p "Enter 'yes' or 'no': " user_response
+
+if [ $user_response = "yes" ]; then
+echo "Good, I'm glad to hear that you like it."
+else
+echo "You need to make a better choice next time."
+fi
+
+echo "By the way, did you know that the square of your age is $(($user_age**2))? I find that exciting."
+
+echo "And your favorite color, $user_fav_color, is not very impressive. My favorite color is the perfect color"
+
+echo "That concludes our conversation. Remember to spread the word about $asi_name and the exercise we just did"

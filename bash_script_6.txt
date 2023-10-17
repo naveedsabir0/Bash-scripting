@@ -1,0 +1,15 @@
+A fixed loop should be used to print these arguments.
+
+
+
+SCRIPT:
+
+#Fixed loop to print arguments of a file
+
+#!/bin/bash
+
+# Loop through the arguments and print them
+for arg in "$@"
+do
+case $arg in
+-h|--hel...

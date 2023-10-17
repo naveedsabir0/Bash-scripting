@@ -1,0 +1,53 @@
+Develop an arithmetic calculator that will accept two numbers and calculate the solutions of addition, subtraction, multiplication and division.
+
+Display results to user using 3 decimal places
+
+Use Selection Programming constructs in bash to enhance your program by allowing the user to choose which arithmetic operation they would like to do.
+
+
+
+SCRIPT:
+
+#Arithmetic bash script using floating point values
+
+#!/bin/bash
+
+# Print a welcome message and prompt the user to input two numbers
+echo "Welcome to the arithmetic calculator!"
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+
+# Prompt the user to choose an arithmetic operation
+echo "Choose an option:"
+echo "1. Addition (+)"
+echo "2. Subtraction (-)"
+echo "3. Multiplication (*)"
+echo "4. Division (/)"
+read -p "Enter the operation number: " op
+
+# Use a case statement to perform the corresponding arithmetic operation
+case $op in
+1)
+result=$(echo "scale=3; $num1 + $num2" | bc) # Addition
+echo "The sum of $num1 and $num2 is: $result"
+;;
+2)
+result=$(echo "scale=3; $num1 - $num2" | bc) # Subtraction
+echo "The difference between $num1 and $num2 is: $result"
+;;
+3)
+result=$(echo "scale=3; $num1 * $num2" | bc) # Multiplication
+echo "The product of $num1 and $num2 is: $result"
+;;
+4)
+if [[ $num2 -eq 0 ]]; then
+echo "Division by zero is undefined"
+else
+result=$(echo "scale=3; $num1 / $num2" | bc) # Division
+echo "The quotient of $num1 divided by $num2 is: $result"
+fi
+;;
+*)
+echo "Invalid input" # If the user enters an invalid operation number
+;;
+esac

@@ -1,0 +1,24 @@
+Write a script which accepts 3 names as arguments and creates files using these names. The script should list the directory contents afterwards.
+
+
+SCRIPT:
+
+
+#Creating files using names accepted as parameters
+
+#!/bin/bash
+
+# Check if 3 arguments were provided
+if [ "$#" -ne 3 ]; then
+echo "Usage: $0 name1 name2 name3"
+exit 1
+fi
+
+# Loop through the arguments and create files
+for arg in "$@"
+do
+touch "${arg}.txt"
+done
+
+# List the content in directory
+ls -l

@@ -1,0 +1,18 @@
+Write a script to create 5 files using a fixed loop.
+
+
+
+SCRIPT:
+
+#Creating files using a fixed loop
+
+#!/bin/bash
+
+# Loop 5 times and create files
+for i in {1..5}
+do
+touch "file${i}.txt"
+done
+
+# List the files of the directory
+ls -l

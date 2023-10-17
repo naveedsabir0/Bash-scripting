@@ -1,0 +1,41 @@
+Write a script to create a file every time enter is pressed.
+The script should stop when q is pressed.
+Append the file name by 1 every time a file is create as follows: file1.txt, file2.txt, file3.txt
+Every time a file is created it should show the list of files in the directory.
+
+When the script starts it should clear the screen
+
+
+
+SCRIPT:
+
+#File creator
+#!/bin/bash
+
+# Clear the screen
+clear
+
+# Initialize the file counter
+count=1
+
+# Loop until the user presses 'q'
+while true; do
+# Prompt the user to press enter to create a file, or press 'q' to quit
+read -p "Press enter to create a file, or press 'q' to quit: " input
+
+# Check if the user pressed 'q'
+if [[ "$input" == "q" ]]; then
+break # Exit the loop if press 'q'
+fi
+
+# Generate the file name and create the file
+filename="file$count.txt"
+touch $filename
+
+# Increment the file counter
+((count++))
+
+# Display the list of files in the directory
+echo "List of files in chosen directory:"
+ls
+done
